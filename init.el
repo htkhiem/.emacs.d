@@ -35,6 +35,14 @@ There are two things you can do about this warning:
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
+;; Directory explorer + all-the-icon
+(use-package all-the-icons
+  :ensure t)
+(use-package neotree
+  :ensure t)
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+(global-set-key [f8] 'neotree-toggle)
+
 ;; Dev stuff
 (electric-pair-mode 1)
 (require 'doxymacs) ; Not available on MELPA
