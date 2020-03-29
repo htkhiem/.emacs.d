@@ -31,6 +31,11 @@ On Arch-based distros, do
 - `C-s`: search
 - `M-x query-replace RET (search phrase) RET (replacement)`: search-and-replace
 
+### Vietnamese input
+- `C-\`: toggles between English and Vietnamese Telex mode (uses built-in `leim`, no need for, and not affected by, ibus)
+
+Note: Emacs defaults to English on startup.
+
 ### Automatic code formatting
 - `M-x RET f-a-b`: format all buffers to their respective code standards.
 

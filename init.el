@@ -1,6 +1,3 @@
-;;; htkhiem's emacs setup
-;;; Code:
-
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                     (not (gnutls-available-p))))
@@ -28,8 +25,9 @@ There are two things you can do about this warning:
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
 
-;; System-wide clipboard
+;; Clipboard and input methods
 (setq select-enable-clipboard t)
+(setq default-input-method "vietnamese-telex")
 
 ;; Navigation
 (when (fboundp 'windmove-default-keybindings)
