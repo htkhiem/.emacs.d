@@ -90,6 +90,20 @@ There are two things you can do about this warning:
 ;; Highlight current line
 (global-hl-line-mode 1)
 
+;; Dashboard
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+(setq dashboard-items '((recents  . 5)
+                        (bookmarks . 5)))
+;; Set the title
+(setq dashboard-banner-logo-title "G N U • E M A C S")
+;; Set the banner
+(setq dashboard-startup-banner 'logo)
+;; Content is not centered by default.
+(setq dashboard-center-content t)
+(setq dashboard-show-shortcuts nil)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -103,7 +117,7 @@ There are two things you can do about this warning:
  '(global-display-line-numbers-mode t)
  '(package-selected-packages
    (quote
-    (doom-themes doom-modeline flycheck company highlight-indent-guides format-all yasnippet)))
+    (dashboard doom-themes doom-modeline flycheck company highlight-indent-guides format-all yasnippet)))
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(tool-bar-position (quote top)))
