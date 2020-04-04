@@ -3,11 +3,7 @@
                     (not (gnutls-available-p))))
        (proto (if no-ssl "http" "https")))
   (when no-ssl (warn "\
-Your version of Emacs does not support SSL connections,
-which is unsafe because it allows man-in-the-middle attacks.
-There are two things you can do about this warning:
-1. Install an Emacs version that does support SSL and be safe.
-2. Remove this warning from your init file so you won't see it again."))
+This version of Emacs does not have SSL support."))
   (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
   )
 
@@ -33,7 +29,7 @@ There are two things you can do about this warning:
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
-;; Directory explorer + all-the-icon
+;; Directory explorer + all-the-icons
 (use-package all-the-icons
   :ensure t)
 (use-package neotree
@@ -41,29 +37,56 @@ There are two things you can do about this warning:
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 (global-set-key [f8] 'neotree-toggle)
 
-;; Dev stuff
+;; DEVELOPMENT ASSISTS ----------------------------------------------------
 (electric-pair-mode 1)
 (require 'doxymacs) ; Not available on MELPA
 (add-hook 'c-mode-common-hook 'doxymacs-mode)
+
+;; Autocompletion framework
 (use-package company
   :ensure t)
-(use-package yasnippet
-  :ensure t)
-(add-hook 'after-init-hook 'global-company-mode)
+
+;; Real-time error checking
 (use-package flycheck
   :ensure t)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; Code autoformatting
 (use-package format-all
   :ensure t)
+
+;; Indentation highlighting
 (use-package highlight-indent-guides
   :ensure t)
-;; Indentation highlighting
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (setq highlight-indent-guides-delay 0)
 (setq highlight-indent-guides-responsive "top")
 
 ;; Folding
 (add-hook 'c-mode-common-hook 'hs-minor-mode)
+
+;; LANGUAGE MODES ---------------------------------------------------------
+;; C++
+(use-package company-irony
+  :ensure t)
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-irony))
+(use-package yasnippet
+  :ensure t)
+(add-hook 'after-init-hook 'global-company-mode)
+
+;; Rust
+(use-package rust-mode
+  :ensure t)
+(use-package racer
+  :ensure t)
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'racer-mode-hook #'company-mode)
+(require 'rust-mode)
+(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+(setq company-tooltip-align-annotations t)
+
 ;; LOOKS ------------------------------------------------------------------
 ;; Window title format
 (setq-default frame-title-format '("%b"))
@@ -112,7 +135,6 @@ There are two things you can do about this warning:
  '(doom-modeline-bar-width 4)
  '(doom-modeline-buffer-encoding t)
  '(doom-modeline-github nil)
- '(doom-modeline-height 12)
  '(font-use-system-font t)
  '(global-display-line-numbers-mode t)
  '(package-selected-packages
