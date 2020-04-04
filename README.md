@@ -1,6 +1,6 @@
 ## Features
 - Personal minimal Emacs setup for a modern, VSCode-like experience.
-- Supports C/C++ mostly.
+- Supports C/C++ and Rust mostly.
 - Autocompletion for most languages using `company`.
 - Real-time syntax error checking.
 - Little bits for convenience such as system-wide clipboard, automatic braces (} {} "" '' and auto update checking for MELPA modules on startup.
