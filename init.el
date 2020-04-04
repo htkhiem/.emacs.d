@@ -78,14 +78,13 @@ This version of Emacs does not have SSL support."))
 ;; Rust
 (use-package rust-mode
   :ensure t)
-(use-package racer
+(use-package cargo
   :ensure t)
-(add-hook 'rust-mode-hook #'racer-mode)
-(add-hook 'racer-mode-hook #'eldoc-mode)
-(add-hook 'racer-mode-hook #'company-mode)
-(require 'rust-mode)
-(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
-(setq company-tooltip-align-annotations t)
+(add-hook 'rust-mode-hook 'cargo-minor-mode)
+(use-package flycheck-rust
+  :ensure t)
+(with-eval-after-load 'rust-mode
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 ;; LOOKS ------------------------------------------------------------------
 ;; Window title format
