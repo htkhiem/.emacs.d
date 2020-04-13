@@ -1,17 +1,15 @@
 ## Features
 - Personal minimal Emacs setup for a modern, VSCode-like experience.
 - Supports C/C++ and Rust mostly.
+- Javadoc/Doxygen comment generation using `doc-mode`.
 - Autocompletion for most languages using `company`.
 - Real-time syntax error checking.
-- Little bits for convenience such as system-wide clipboard, automatic braces (} {} "" '' and auto update checking for MELPA modules on startup.
+- Little bits for convenience such as system-wide clipboard, automatic braces `() {} ""` and auto update checking for MELPA modules on startup.
 - Automatically downloads and installs most of its modules by itself upon cloning (no need to go here and there to redownload each module).
 -Startup time kept to a minimum.
 ## Instructions
-1. Install doxymacs
-On Arch-based distros, do 
-`yay -S doxymacs-git`. Other distros: please follow instructions at http://doxymacs.sourceforge.net/
-2. Clone this repo into your home folder.
-3. Open emacs and run `M-x all-the-icons-install-fonts`.
+1. Clone this repo into your `~`, so that the `.emacs.d` folder is placed like this: `~/.emacs.d`.
+2. Open Emacs and run `M-x all-the-icons-install-fonts`.
 
 ## Keybinds
 ### Default Emacs keybinds
@@ -32,7 +30,7 @@ On Arch-based distros, do
 - `M-x query-replace RET (search phrase) RET (replacement)`: search-and-replace
 
 ### Vietnamese input
-- `C-\`: toggles between English and Vietnamese Telex mode (uses built-in `leim`, no need for, and not affected by, ibus)
+- `C-\`: toggles between English and Vietnamese Telex mode (uses built-in `leim`, no need for, and not affected by, ibus).
 
 Note: Emacs defaults to English on startup.
 
@@ -53,11 +51,11 @@ Note: See https://github.com/lassik/emacs-format-all-the-code for external depen
 - `C-x 0`: close current one
 - `Shift + arrow keys`: move between views
 
-### Doxymacs
-- `C-c d f`: insert Doxygen comment template for the function directly below cursor
-- `C-c d i`: insert Doxygen comment template for this file
-- `C-c d @`: insert Doxygen comment that wraps around current selection
-- `C-c d ?`: look up Doxygen documentation for the current symbol
+### doc-mode
+- `C-c c d`: add/replace documentation comment at cursor.
+- `C-c c r`: remove documentation comment at cursor.
+- `C-c c t`: fold/unfold documentation comment at cursor.
+- `C-c c r`: fold/unfold all documentation comments.
 
 ### Flycheck (real-time syntax error checking not unlike Intellisense)
 - `C-c ! n`: goto next error

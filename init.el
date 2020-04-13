@@ -38,9 +38,17 @@ This version of Emacs does not have SSL support."))
 (global-set-key [f8] 'neotree-toggle)
 
 ;; DEVELOPMENT ASSISTS ----------------------------------------------------
+;; Auto-pairs [] {} () ""
 (electric-pair-mode 1)
-(require 'doxymacs) ; Not available on MELPA
-(add-hook 'c-mode-common-hook 'doxymacs-mode)
+
+;; Javadoc/Doxygen comment creation
+(semantic-mode 1)
+(require 'doc-mode)
+(add-hook 'c-mode-common-hook 'doc-mode)
+(global-set-key (kbd "C-c c d") 'doc-mode-fix-tag-doc)
+(global-set-key (kbd "C-c c r") 'doc-mode-remove-tag-doc)
+(global-set-key (kbd "C-c c t") 'doc-mode-toggle-tag-doc)
+(global-set-key (kbd "C-c c f") 'doc-mode-fold)
 
 ;; Autocompletion framework
 (use-package company
