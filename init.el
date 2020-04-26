@@ -95,6 +95,15 @@ This version of Emacs does not have SSL support."))
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 ;; LOOKS ------------------------------------------------------------------
+;; Terminal mode only: transparent background
+(defun on-after-init ()
+  (unless (display-graphic-p (selected-frame))
+    (set-face-background 'default "unspecified-bg" (selected-frame))))
+
+(add-hook 'window-setup-hook 'on-after-init)
+;; GTK only: transparent background
+;; (set-frame-parameter (selected-frame) 'alpha '(85 . 50))
+;; (add-to-list 'default-frame-alist '(alpha . (85 . 50)))
 ;; Window title format
 (setq-default frame-title-format '("%b"))
 ;; Modeline
