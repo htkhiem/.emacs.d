@@ -6,7 +6,7 @@
 - Real-time syntax error checking.
 - Little bits for convenience such as system-wide clipboard, automatic braces `() {} ""` and auto update checking for MELPA modules on startup.
 - Automatically downloads and installs most of its modules by itself upon cloning (no need to go here and there to redownload each module).
--Startup time kept to a minimum.
+- Startup time kept to a minimum.
 ## Instructions
 1. Clone this repo into your `~`, so that the `.emacs.d` folder is placed like this: `~/.emacs.d`.
 2. Open Emacs and run `M-x all-the-icons-install-fonts`.
