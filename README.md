@@ -12,7 +12,7 @@
 `cd ~`  
 `mv .emacs.d .emacs.d.bak`  
 1. Clone this repo into your home:  
-`git clone git@github.com:htkhiem/.emacs.d.git`
+`git clone https://github.com/htkhiem/.emacs.d.git`
 2. Open Emacs, wait a bit for the initial setup to finish downloading the necessary packages from MELPA and run:  
 `M-x all-the-icons-install-fonts`.  
 To restore your old Emacs config:  
