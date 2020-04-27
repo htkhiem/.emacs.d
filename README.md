@@ -8,9 +8,17 @@
 - Automatically downloads and installs most of its modules by itself upon cloning (no need to go here and there to redownload each module).
 - Startup time kept to a minimum.
 ## Instructions
-1. Clone this repo into your `~`, so that the `.emacs.d` folder is placed like this: `~/.emacs.d`.
-2. Open Emacs and run `M-x all-the-icons-install-fonts`.
-
+1. Back up your current Emacs config folder:  
+`cd ~`  
+`mv .emacs.d .emacs.d.bak`  
+1. Clone this repo into your home:  
+`git clone git@github.com:htkhiem/.emacs.d.git`
+2. Open Emacs, wait a bit for the initial setup to finish downloading the necessary packages from MELPA and run:  
+`M-x all-the-icons-install-fonts`.  
+To restore your old Emacs config:  
+`cd ~`  
+`rm -rf .emacs.d`  
+`mv .emacs.d.bak .emacs.d`  
 ## Keybinds
 ### Default Emacs keybinds
 - `C-p`: previous line
