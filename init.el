@@ -67,7 +67,7 @@ This version of Emacs does not have SSL support."))
 (use-package highlight-indent-guides
   :ensure t)
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-(setq highlight-indent-guides-delay 0)
+(setq highlight-indent-guides-delay 1)
 (setq highlight-indent-guides-responsive "top")
 
 ;; Folding
