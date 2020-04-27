@@ -94,6 +94,14 @@ This version of Emacs does not have SSL support."))
 (with-eval-after-load 'rust-mode
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
+;; Qt/QML
+
+
+(use-package qml-mode
+  :ensure t)
+ (autoload 'qml-mode "qml-mode" "Editing Qt Declarative." t)
+ (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
+
 ;; LOOKS ------------------------------------------------------------------
 ;; Terminal mode only: transparent background
 (defun on-after-init ()
