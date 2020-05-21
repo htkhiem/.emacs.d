@@ -95,12 +95,10 @@ This version of Emacs does not have SSL support."))
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 ;; Qt/QML
-
-
 (use-package qml-mode
   :ensure t)
- (autoload 'qml-mode "qml-mode" "Editing Qt Declarative." t)
- (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
+(autoload 'qml-mode "qml-mode" "Editing Qt Declarative." t)
+(add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
 
 ;; LOOKS ------------------------------------------------------------------
 ;; Terminal mode only: transparent background
@@ -114,6 +112,17 @@ This version of Emacs does not have SSL support."))
 ;; (add-to-list 'default-frame-alist '(alpha . (85 . 50)))
 ;; Window title format
 (setq-default frame-title-format '("%b"))
+
+;; ewal loads pywal palettes
+(use-package ewal
+  :ensure t
+  :init (setq ewal-use-built-in-always-p t))
+(use-package ewal-doom-themes
+  :ensure t
+  :config (progn
+            (load-theme 'ewal-doom-one t)
+            (enable-theme 'ewal-doom-one)))
+
 ;; Modeline
 (menu-bar-mode -1)
 (setq inhibit-splash-screen t)
@@ -126,10 +135,6 @@ This version of Emacs does not have SSL support."))
   :ensure t)
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
       doom-themes-enable-italic t) ; if nil, italics is universally disabled
-
-;; Load the theme (doom-one, doom-molokai, etc).
-;; doom-dark+ works best with Materia GTK.
-(load-theme 'doom-dark+ t)
 
 ;; Disable scrollbar
 (scroll-bar-mode -1)
@@ -163,7 +168,7 @@ This version of Emacs does not have SSL support."))
  '(global-display-line-numbers-mode t)
  '(package-selected-packages
    (quote
-    (dashboard doom-themes doom-modeline flycheck company highlight-indent-guides format-all yasnippet)))
+    (dashboard flycheck company highlight-indent-guides format-all yasnippet)))
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(tool-bar-position (quote top)))
