@@ -28,7 +28,13 @@ This version of Emacs does not have SSL support."))
 ;; Navigation
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
-
+;; Smooth scrolling
+(use-package smooth-scrolling
+  :ensure t)
+(require 'smooth-scrolling)
+(smooth-scrolling-mode 1)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
+(pixel-scroll-mode 1)
 ;; Directory explorer + all-the-icons
 (use-package all-the-icons
   :ensure t)
@@ -177,4 +183,4 @@ This version of Emacs does not have SSL support."))
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "MesloLGS NF" :foundry "PfEd" :slant normal :weight normal :height 113 :width normal)))))
+ '(default ((t (:family "MesloLGS NF" :foundry "PfEd" :slant normal :weight normal :height 115 :width normal)))))
