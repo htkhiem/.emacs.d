@@ -1,13 +1,17 @@
 ## Features
 - Personal minimal Emacs setup for a modern, VSCode-like experience.
+- **Now works with pywal!**
 - Supports C/C++ and Rust mostly.
 - Javadoc/Doxygen comment generation using `doc-mode`.
 - Autocompletion for most languages using `company`.
 - Real-time syntax error checking.
+- Ctrl + mouse scrolling changes font size.
 - Little bits for convenience such as system-wide clipboard, automatic braces `() {} ""` and auto update checking for MELPA modules on startup.
 - Automatically downloads and installs most of its modules by itself upon cloning (no need to go here and there to redownload each module).
 - Startup time kept to a minimum.
 ## Instructions
+0. (Optional) Install Meslo Nerd Font patched by the devs of Powerlevel10k.  
+`https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k`
 1. Back up your current Emacs config folder:  
 `cd ~`  
 `mv .emacs.d .emacs.d.bak`  
@@ -15,6 +19,9 @@
 `git clone https://github.com/htkhiem/.emacs.d.git`
 2. Open Emacs, wait a bit for the initial setup to finish downloading the necessary packages from MELPA and run:  
 `M-x all-the-icons-install-fonts`.  
+3. (Optional) Run pywal once with your current wallpaper to match Emacs' colour scheme with it. Get the awesome pywal script here:  
+`https://github.com/dylanaraps/pywal`  
+### Uninstalling
 To restore your old Emacs config:  
 `cd ~`  
 `rm -rf .emacs.d`  
@@ -37,15 +44,18 @@ To restore your old Emacs config:
 - `C-s`: search
 - `M-x query-replace RET (search phrase) RET (replacement)`: search-and-replace
 
-### Vietnamese input
-- `C-\`: toggles between English and Vietnamese Telex mode (uses built-in `leim`, no need for, and not affected by, ibus).
+### Font size control
+Pratically zooming. Works in GTK mode only (for terminal mode, change your terminal font size instead - Emacs cannot control that).  
+- `C-mouse wheel up`: Increments font size
+- `C-mouse wheel down`: Decrements font size
 
+### Vietnamese input
+- `C-\`: toggles between English and Vietnamese Telex mode (uses built-in `leim`, no need for, and not affected by, ibus).  
 Note: Emacs defaults to English on startup.
 
 ### Automatic code formatting
-- `M-x RET f-a-b`: format all buffers to their respective code standards.
-
-Note: See https://github.com/lassik/emacs-format-all-the-code for external dependencies, such as clang for formatting C/C++ code.
+- `M-x RET f-a-b`: format all buffers to their respective code standards.  
+Note: See `https://github.com/lassik/emacs-format-all-the-code` for external dependencies, such as clang for formatting C/C++ code.
 
 ### File/window operations
 - `<F8>`: open neotree sidepane (navigate using the same keys as above, enter/space to open folders or files)

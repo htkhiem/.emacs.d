@@ -35,6 +35,11 @@ This version of Emacs does not have SSL support."))
 (smooth-scrolling-mode 1)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
 (pixel-scroll-mode 1)
+
+;; Ctrl + mouse scroll changes font size
+(global-set-key [C-mouse-4] 'text-scale-increase)
+(global-set-key [C-mouse-5] 'text-scale-decrease)
+
 ;; Directory explorer + all-the-icons
 (use-package all-the-icons
   :ensure t)
@@ -112,6 +117,10 @@ This version of Emacs does not have SSL support."))
   (unless (display-graphic-p (selected-frame))
     (set-face-background 'default "unspecified-bg" (selected-frame))))
 
+;; Font
+(setq default-frame-alist
+      (add-to-list 'default-frame-alist '(font . "MesloLGS NF-11")))
+
 (add-hook 'window-setup-hook 'on-after-init)
 ;; GTK only: transparent background
 ;; (set-frame-parameter (selected-frame) 'alpha '(85 . 50))
@@ -131,6 +140,7 @@ This version of Emacs does not have SSL support."))
 
 ;; Modeline
 (menu-bar-mode -1)
+(tool-bar-mode -1)
 (setq inhibit-splash-screen t)
 (use-package doom-modeline
   :ensure t)
@@ -162,25 +172,3 @@ This version of Emacs does not have SSL support."))
 ;; Content is not centered by default.
 (setq dashboard-center-content t)
 (setq dashboard-show-shortcuts nil)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(doom-modeline-bar-width 4)
- '(doom-modeline-buffer-encoding t)
- '(doom-modeline-github nil)
- '(font-use-system-font t)
- '(global-display-line-numbers-mode t)
- '(package-selected-packages
-   (quote
-    (dashboard flycheck company highlight-indent-guides format-all yasnippet)))
- '(show-paren-mode t)
- '(tool-bar-mode nil)
- '(tool-bar-position (quote top)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "MesloLGS NF" :foundry "PfEd" :slant normal :weight normal :height 115 :width normal)))))
