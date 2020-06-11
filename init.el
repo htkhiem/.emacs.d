@@ -28,13 +28,9 @@ This version of Emacs does not have SSL support."))
 ;; Navigation
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
-;; Smooth scrolling
-(use-package smooth-scrolling
-  :ensure t)
-(require 'smooth-scrolling)
-(smooth-scrolling-mode 1)
+
+;; Per-line scrolling
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
-(pixel-scroll-mode 1)
 
 ;; Ctrl + mouse scroll changes font size
 (global-set-key [C-mouse-4] 'text-scale-increase)
