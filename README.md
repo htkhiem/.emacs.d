@@ -79,3 +79,26 @@ Note: See `https://github.com/lassik/emacs-format-all-the-code` for external dep
 - `C-c ! n`: goto next error
 - `C-c ! p`: goto previous error
 Explanations for errors are always shown below the mode line.
+
+## Credits:
+- The Emacs and MELPA team, of course!
+- domtronn's all-the-icons.el: <https://github.com/domtronn/all-the-icons.el>
+- jaypei's neotree: <https://github.com/jaypei/emacs-neotree>
+- The company-mode team: <https://github.com/company-mode/company-mode>
+- Sarcasm's company-irony: <https://github.com/Sarcasm/company-irony>
+- The Flycheck team: <https://github.com/flycheck/flycheck>
+  - Also their Rust integration: <https://github.com/flycheck/flycheck-rust>
+- lassik's FABulous format-all-the-code: <https://github.com/lassik/emacs-format-all-the-code>
+- DarthFennec's highlight-indent-guides: <https://github.com/DarthFennec/highlight-indent-guides>
+- joaotavora's yasnippet: <https://github.com/joaotavora/yasnippet>
+- The Rust dev team's rust-mode for Emacs: <https://github.com/rust-lang/rust-mode>
+- kwrooijen's Cargo integration : <https://github.com/kwrooijen/cargo.el>
+- cataska's QML mode: <https://github.com/cataska/qml-mode>
+- jjzmajic's Pywal integration for Emacs: <https://gitlab.com/jjzmajic/ewal>
+  - They even made a compatible variation of doom-themes!
+- hlissner's Doom themes: <https://github.com/hlissner/emacs-doom-themes>
+- seagle0128's Doom modeline: <https://github.com/seagle0128/doom-modeline>
+- The Emacs Dashboard team: <https://github.com/emacs-dashboard/emacs-dashboard> 
+
+
+

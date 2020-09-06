@@ -29,6 +29,10 @@ This version of Emacs does not have SSL support."))
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
+;; Line numbers revisited
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
+
 ;; Per-line scrolling
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
 
@@ -79,6 +83,10 @@ This version of Emacs does not have SSL support."))
 
 ;; Folding
 (add-hook 'c-mode-common-hook 'hs-minor-mode)
+
+;; git mergetool compatibility
+(defadvice server-save-buffers-kill-terminal (after server-save-buffers-kill-terminal-after-hack activate)
+  (mapc 'kill-buffer (buffer-list)))
 
 ;; LANGUAGE MODES ---------------------------------------------------------
 ;; C++
