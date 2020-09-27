@@ -1,6 +1,6 @@
 ## Features
 - Personal minimal Emacs setup for a modern, VSCode-like experience.
-- **Now works with pywal!**
+- Uses Doom theme and modeline.
 - Supports C/C++ and Rust mostly.
 - Javadoc/Doxygen comment generation using `doc-mode`.
 - Autocompletion for most languages using `company`.
@@ -94,8 +94,6 @@ Explanations for errors are always shown below the mode line.
 - The Rust dev team's rust-mode for Emacs: <https://github.com/rust-lang/rust-mode>
 - kwrooijen's Cargo integration : <https://github.com/kwrooijen/cargo.el>
 - cataska's QML mode: <https://github.com/cataska/qml-mode>
-- jjzmajic's Pywal integration for Emacs: <https://gitlab.com/jjzmajic/ewal>
-  - They even made a compatible variation of doom-themes!
 - hlissner's Doom themes: <https://github.com/hlissner/emacs-doom-themes>
 - seagle0128's Doom modeline: <https://github.com/seagle0128/doom-modeline>
 - The Emacs Dashboard team: <https://github.com/emacs-dashboard/emacs-dashboard> 

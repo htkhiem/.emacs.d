@@ -115,11 +115,46 @@ This version of Emacs does not have SSL support."))
 (autoload 'qml-mode "qml-mode" "Editing Qt Declarative." t)
 (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
 
+;; Python
+(use-package elpy
+  :ensure t
+  :init
+  (elpy-enable))
 ;; LOOKS ------------------------------------------------------------------
+
+;; Doom Gruvbox variant
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-gruvbox t)
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+
+  ;; Enable custom neotree theme (all-the-icons must be installed!)
+  (doom-themes-neotree-config)
+  ;; or for treemacs users
+  (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
+  (doom-themes-treemacs-config)
+
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
+
+;; Doom Modeline
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
+
 ;; Terminal mode only: transparent background
 (defun on-after-init ()
   (unless (display-graphic-p (selected-frame))
     (set-face-background 'default "unspecified-bg" (selected-frame))))
+;; Enable language environment display
+
+(setq doom-modeline-env-version t)
 
 ;; Font
 (setq default-frame-alist
@@ -132,29 +167,10 @@ This version of Emacs does not have SSL support."))
 ;; Window title format
 (setq-default frame-title-format '("%b"))
 
-;; ewal loads pywal palettes
-(use-package ewal
-  :ensure t
-  :init (setq ewal-use-built-in-always-p t))
-(use-package ewal-doom-themes
-  :ensure t
-  :config (progn
-            (load-theme 'ewal-doom-one t)
-            (enable-theme 'ewal-doom-one)))
-
 ;; Modeline
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (setq inhibit-splash-screen t)
-(use-package doom-modeline
-  :ensure t)
-(doom-modeline-mode 1)
-
-;; Doom themes
-(use-package doom-themes
-  :ensure t)
-(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-      doom-themes-enable-italic t) ; if nil, italics is universally disabled
 
 ;; Disable scrollbar
 (scroll-bar-mode -1)
@@ -176,3 +192,16 @@ This version of Emacs does not have SSL support."))
 ;; Content is not centered by default.
 (setq dashboard-center-content t)
 (setq dashboard-show-shortcuts nil)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(elpy yasnippet smooth-scrolling qml-mode powerline neotree highlight-indent-guides format-all flycheck-rust ewal-doom-themes doom-modeline dashboard company-irony cargo auto-package-update)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
